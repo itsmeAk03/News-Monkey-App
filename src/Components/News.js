@@ -8,7 +8,8 @@ export class News extends Component {
       console.log("This is a constructor");
       this.state={
           articles:[],
-          loading: false
+          loading: false,
+          page:1
       }
     }
 
@@ -20,6 +21,12 @@ export class News extends Component {
       this.setState({articles:parsedData.articles})
     }
 
+    handleNextClick =()=>{
+    
+    }
+    handlePrevClick =()=>{
+
+    }
   render() {
     return (
       <div className='container my-3'>
@@ -31,6 +38,10 @@ export class News extends Component {
            <NewsItem  title={element.title?element.title.slice(0,45):""} description={element.description?element.description.slice(0,68):""} imageUrl={element.urlToImage} newsUrl={element.url} />
     </div>
         })}
+        </div>
+        <div className="container d-flex justify-content-between">
+        <button disabled={this.state.page<=1} type="button" class="btn btn-dark" onClick={this.handlePrevClick} >&larr; Previous</button>
+        <button  type="button" class="btn btn-dark" onClick={this.handleNextClick} >Next &rarr;</button>
         </div>
       </div>
     )
