@@ -1,0 +1,35 @@
+.card {
+    background-color: rgba(255, 255, 255, 0.2); /* glassmorphic effect */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.5); /* glowing border effect */
+  }
+  
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff; /* change font color to stand out */
+  }
+  
+  .card-text {
+    font-size: 14px;
+    color: #d3c5c5; /* change font color to stand out */
+  }
+  
+  .btn-primary {
+    background-color: #337ab7;
+    border-color: #337ab7;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn-primary:hover {
+    background-color: #23527c;
+    border-color: #23527c;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }

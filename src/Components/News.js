@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import NewsItem from './NewsItem'
 import Spinner from './Spinner';
+import '../Styles/News.css';
 
 
 export class News extends Component {
@@ -27,8 +28,8 @@ export class News extends Component {
       }
     }
 
-    async componentDidMount(){
-      let url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=2e42d364a7fa40fc9ba4ab4d261eb09f&pageSize=${this.props.pageSize}`;
+    async updateNews(){
+      const url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=2e42d364a7fa40fc9ba4ab4d261eb09f&pageSize=${this.props.pageSize}`;
       this.setState({loading:true});
       let data=await fetch(url);
       let parsedData=await data.json();
@@ -37,36 +38,51 @@ export class News extends Component {
       this.setState({articles:parsedData.articles , totalResults:parsedData.totalResults})
     }
 
-    handleNextClick = async()=>{
-      if(this.state.page+1 > Math.ceil(this.state.totalResults/this.props.pageSize)){
+    async componentDidMount(){
+      // let url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=2e42d364a7fa40fc9ba4ab4d261eb09f&pageSize=${this.props.pageSize}`;
+      // this.setState({loading:true});
+      // let data=await fetch(url);
+      // let parsedData=await data.json();
+      // this.setState({loading:false});
+      // console.log(parsedData);
+      // this.setState({articles:parsedData.articles , totalResults:parsedData.totalResults})
+      this.updateNews();
+    }
 
-      }
-      else{
-      let url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=2e42d364a7fa40fc9ba4ab4d261eb09f&page=${this.state.page+1}&pageSize=${this.props.pageSize}`;
-      this.setState({loading:true});
-      let data=await fetch(url);
-      let parsedData=await data.json();
-      console.log(parsedData);
+    handleNextClick = async()=>{
+    //   if(this.state.page+1 > Math.ceil(this.state.totalResults/this.props.pageSize)){
+
+    //   }
+    //   else{
+    //   let url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=2e42d364a7fa40fc9ba4ab4d261eb09f&page=${this.state.page+1}&pageSize=${this.props.pageSize}`;
+    //   this.setState({loading:true});
+    //   let data=await fetch(url);
+    //   let parsedData=await data.json();
+    //   console.log(parsedData);
       
-      this.setState({
-        page: this.state.page+1,
-        articles:parsedData.articles,
-        loading:false
-      })
-    }
-    }
+    //   this.setState({
+    //     page: this.state.page+1,
+    //     articles:parsedData.articles,
+    //     loading:false
+    //   })
+    // }
+    this.setState({page:this.state.page+1});
+    this.updateNews();
+  }
     handlePrevClick = async()=>{
-      let url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}business&apiKey=2e42d364a7fa40fc9ba4ab4d261eb09f&page=${this.state.page-1}&pageSize=${this.props.pageSize}`;
-      this.setState({loading:true});
-      let data=await fetch(url);
-      let parsedData=await data.json();
-      console.log(parsedData);
+      // let url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}business&apiKey=2e42d364a7fa40fc9ba4ab4d261eb09f&page=${this.state.page-1}&pageSize=${this.props.pageSize}`;
+      // this.setState({loading:true});
+      // let data=await fetch(url);
+      // let parsedData=await data.json();
+      // console.log(parsedData);
       
-      this.setState({
-        page: this.state.page-1,
-        articles:parsedData.articles,
-        loading:false
-      })
+      // this.setState({
+      //   page: this.state.page-1,
+      //   articles:parsedData.articles,
+      //   loading:false
+      // })
+      this.setState({page:this.state.page-1});
+      this.updateNews();
     }
   render() {
     return (

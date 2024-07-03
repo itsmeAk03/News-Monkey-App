@@ -1,0 +1,46 @@
+body {
+    background-color: #050404db; /* silver background color */
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: transparent; /* remove background color */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .text-center {
+    font-size: 36px;
+    font-weight: bold;
+    color: #faf8f8; /* change text color to dark gray */
+    margin-bottom: 20px;
+  }
+  
+  .row {
+    margin-top: 20px;
+  }
+  
+  .col-md-4 {
+    margin-bottom: 20px;
+  }
+  
+  .btn-dark {
+    background-color: #333;
+    border-color: #333;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn-dark:hover {
+    background-color: #555;
+    border-color: #555;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .btn-dark:disabled {
+    background-color: #ccc;
+    border-color: #ccc;
+    cursor: not-allowed;
+  }

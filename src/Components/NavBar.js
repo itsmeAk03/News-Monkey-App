@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import '../Styles/NavBar.css';
+
 
 export class NavBar extends Component {
+
 
 
   render() {
@@ -46,6 +49,10 @@ export class NavBar extends Component {
      
     </div>
   </div>
+
+  
+      
+
 </nav>
       </div>
     )
