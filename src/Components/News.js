@@ -17,8 +17,8 @@ export class News extends Component {
     //   category:PropTypes.string,
     // }
 
-    constructor(){
-      super();
+    constructor(props){
+      super(props);
       console.log("This is a constructor");
       this.state={
           articles:[],
@@ -26,6 +26,7 @@ export class News extends Component {
           page:1
 
       }
+      document.title=`${this.props.category} - PigeonPost`;
     }
 
     async updateNews(){
@@ -87,7 +88,7 @@ export class News extends Component {
   render() {
     return (
       <div className='container my-3'>
-        <h1 className="text-center">PigeonPost - Top Headlines</h1>
+        <h1 className="text-center">PigeonPost - Top Headlines from {this.props.category}</h1>
         {this.state.loading && <Spinner/>}
         
         <div className="row">
